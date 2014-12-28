@@ -10,6 +10,7 @@
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
 		24391FCD1A4FF82900CE6E84 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
+		24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		24391FC51A4FF82900CE6E84 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24391FCB1A4FF82900CE6E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPinboardTests.swift; sourceTree = "<group>"; };
+		24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */,
 				24391FBD1A4FF82900CE6E84 /* Supporting Files */,
+				24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */,
 			);
 			path = CocoaPinboard;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +319,7 @@
 		24391FD11A4FF82900CE6E84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -326,12 +331,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		24391FD21A4FF82900CE6E84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
