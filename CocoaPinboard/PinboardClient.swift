@@ -57,7 +57,7 @@ public class PinboardClient {
                 }
             }
             else {
-                callback(false, nil)
+                callback(false, PinboardError(code: .InvalidResponse))
             }
         }
     }
@@ -82,6 +82,9 @@ public class PinboardClient {
                     let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
                     callback(json, jsonError)
                 }
+            }
+            else {
+                callback(nil, PinboardError(code: .InvalidResponse))
             }
         }
     }

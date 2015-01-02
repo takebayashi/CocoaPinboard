@@ -29,6 +29,8 @@
 		2441D8AB1A524609005D44E1 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
 		2441D8AD1A524612005D44E1 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
+		24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
+		24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClient.swift; sourceTree = "<group>"; };
 		2441D8921A524565005D44E1 /* CocoaPinboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPinboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2441D89C1A524565005D44E1 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 				24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */,
 				24391FBD1A4FF82900CE6E84 /* Supporting Files */,
 				24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */,
+				24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */,
 			);
 			path = CocoaPinboard;
 			sourceTree = "<group>";
@@ -344,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */,
+				24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */,
+				24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
