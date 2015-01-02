@@ -86,4 +86,15 @@ public class PinboardClient {
         }
     }
     
+    public func addBookmark(url: String, title: String, tags: [String], callback: NSError? -> Void) {
+        let params = [
+            "url": url,
+            "description": title,
+            "tags": join(",", tags)
+        ]
+        sendRequest("/posts/add", parameters: params) { json, error in
+            callback(error)
+        }
+    }
+    
 }
