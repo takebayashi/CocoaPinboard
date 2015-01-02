@@ -37,8 +37,6 @@ public class PinboardClient {
         self.token = token
     }
     
-    typealias Callback = (AnyObject?, NSError?) -> Void
-    
     func concatenateKeyAndValue(key: String, value: String) -> String {
         return key + "=" + value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
     }
@@ -62,7 +60,7 @@ public class PinboardClient {
         }
     }
     
-    func sendRequest(path: String, parameters: [String: String]?, callback: Callback) {
+    func sendRequest(path: String, parameters: [String: String]?, callback: (AnyObject?, NSError?) -> Void) {
         var params = parameters ?? [:]
         params["auth_token"] = username + ":" + token
         params["format"] = "json"
