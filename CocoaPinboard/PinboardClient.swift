@@ -42,7 +42,7 @@ public class PinboardClient {
     }
     
     public func validateToken(callback: (Bool, NSError?) -> Void) {
-        sendRequest("/user/api_token", parameters: nil) { json, error in
+        sendRequest("/user/api_token", parameters: [:]) { json, error in
             if let _ = error {
                 callback(false, error)
             }
@@ -60,8 +60,8 @@ public class PinboardClient {
         }
     }
     
-    func sendRequest(path: String, parameters: [String: String]?, callback: (AnyObject?, NSError?) -> Void) {
-        var params = parameters ?? [:]
+    func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
+        var params = parameters
         params["auth_token"] = username + ":" + token
         params["format"] = "json"
         let qline = join("&", map(params, concatenateKeyAndValue))
