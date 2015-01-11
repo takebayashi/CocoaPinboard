@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		2441D8AE1A52496C005D44E1 /* CocoaPinboard_iOS_Universal */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 2441D8AF1A52496C005D44E1 /* Build configuration list for PBXAggregateTarget "CocoaPinboard_iOS_Universal" */;
-			buildPhases = (
-				2441D8B21A524989005D44E1 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = CocoaPinboard_iOS_Universal;
-			productName = Universal;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
@@ -268,9 +254,6 @@
 					2441D89B1A524565005D44E1 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					2441D8AE1A52496C005D44E1 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
 				};
 			};
 			buildConfigurationList = 24391FB41A4FF82900CE6E84 /* Build configuration list for PBXProject "CocoaPinboard" */;
@@ -289,7 +272,6 @@
 				24391FC41A4FF82900CE6E84 /* CocoaPinboardTests_OSX */,
 				2441D8911A524565005D44E1 /* CocoaPinboard_iOS */,
 				2441D89B1A524565005D44E1 /* CocoaPinboardTests_iOS */,
-				2441D8AE1A52496C005D44E1 /* CocoaPinboard_iOS_Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -324,22 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2441D8B21A524989005D44E1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "OUT_DIR=$BUILD_DIR/$CONFIGURATION-universal\n\ntest -d \"$OUT_DIR\" && rm -r \"$OUT_DIR\"\nmkdir -p \"$OUT_DIR\"\n\ncp -r \"$BUILD_DIR/$CONFIGURATION-iphoneos/$PRODUCT_NAME.framework\" \"$OUT_DIR/\"\ncp -r \"$BUILD_DIR/$CONFIGURATION-iphonesimulator/$PRODUCT_NAME.framework/Modules/$PRODUCT_NAME.swiftmodule/x86_64.swiftmodule\" \"$OUT_DIR/$PRODUCT_NAME.framework/Modules/$PRODUCT_NAME.swiftmodule/\"\n\nlipo -create -output \"$OUT_DIR/$PRODUCT_NAME.framework/$PRODUCT_NAME\" \"$BUILD_DIR/$CONFIGURATION-iphonesimulator/$PRODUCT_NAME.framework/$PRODUCT_NAME\" \"$BUILD_DIR/$CONFIGURATION-iphoneos/$PRODUCT_NAME.framework/$PRODUCT_NAME\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24391FB51A4FF82900CE6E84 /* Sources */ = {
@@ -624,20 +590,6 @@
 			};
 			name = Release;
 		};
-		2441D8B01A52496C005D44E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = CocoaPinboard;
-			};
-			name = Debug;
-		};
-		2441D8B11A52496C005D44E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = CocoaPinboard;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,15 +634,6 @@
 			buildConfigurations = (
 				2441D8A71A524565005D44E1 /* Debug */,
 				2441D8A81A524565005D44E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2441D8AF1A52496C005D44E1 /* Build configuration list for PBXAggregateTarget "CocoaPinboard_iOS_Universal" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2441D8B01A52496C005D44E1 /* Debug */,
-				2441D8B11A52496C005D44E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
