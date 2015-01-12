@@ -24,7 +24,7 @@ SOFTWARE.
 
 import Foundation
 
-public class Bookmark {
+public class Bookmark: NSObject {
 
     init(json: [String: String]) {
         if let tagLine = json["tags"] {

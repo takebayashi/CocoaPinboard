@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		241C53A91A63CB5C007B1BE0 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bookmark.swift; path = ../Bookmark.swift; sourceTree = "<group>"; };
+		241C53A91A63CB5C007B1BE0 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPinboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24391FBE1A4FF82900CE6E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaPinboard.h; sourceTree = "<group>"; };
