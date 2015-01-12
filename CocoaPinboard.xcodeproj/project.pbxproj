@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		241C53AA1A63CB5C007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
+		241C53AB1A63D7A6007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
 		24391FCD1A4FF82900CE6E84 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
@@ -335,6 +336,7 @@
 			files = (
 				2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */,
 				24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */,
+				241C53AB1A63D7A6007B1BE0 /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
