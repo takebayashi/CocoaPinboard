@@ -25,7 +25,7 @@ SOFTWARE.
 import Foundation
 
 public class Bookmark {
-    
+
     init(json: [String: String]) {
         if let tagLine = json["tags"] {
             self.tags = tagLine.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -36,9 +36,9 @@ public class Bookmark {
         self.URLString = json["href"] ?? ""
         self.title = json["description"] ?? ""
     }
-    
+
     public private(set) var tags: [String]
     public private(set) var URLString: String
     public private(set) var title: String
-    
+
 }

@@ -25,22 +25,22 @@ SOFTWARE.
 import Foundation
 
 public class PinboardClient {
-    
+
     let endpoint = "https://api.pinboard.in/v1"
     let queue = NSOperationQueue.mainQueue()
-    
+
     let username: String
     let token: String
-    
+
     public init(username: String, token: String) {
         self.username = username
         self.token = token
     }
-    
+
     func concatenateKeyAndValue(key: String, value: String) -> String {
         return key + "=" + value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
     }
-    
+
     public func validateToken(callback: (Bool, NSError?) -> Void) {
         sendRequest("/user/api_token", parameters: [:]) { json, error in
             if let _ = error {
@@ -59,7 +59,7 @@ public class PinboardClient {
             }
         }
     }
-    
+
     func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
         var params = parameters
         params["auth_token"] = username + ":" + token
@@ -86,7 +86,7 @@ public class PinboardClient {
             }
         }
     }
-    
+
     public func addBookmark(url: String, title: String, tags: [String], callback: NSError? -> Void) {
         let params = [
             "url": url,
@@ -97,7 +97,7 @@ public class PinboardClient {
             callback(error)
         }
     }
-    
+
     public func getBookmakrs(callback: ([Bookmark]?, NSError?) -> Void) {
         sendRequest("/posts/all", parameters: [:]) { json, error in
             if let _ = error {
@@ -112,5 +112,5 @@ public class PinboardClient {
             }
         }
     }
-    
+
 }

@@ -30,9 +30,9 @@ enum PinboardErrorCode: Int {
 }
 
 class PinboardError: NSError {
-    
+
     convenience init(code: PinboardErrorCode) {
         self.init(domain: PinboardErrorDomain, code: code.rawValue, userInfo: nil)
     }
-    
+
 }
