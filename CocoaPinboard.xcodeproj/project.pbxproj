@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241C53AA1A63CB5C007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
 		24391FCD1A4FF82900CE6E84 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		241C53A91A63CB5C007B1BE0 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bookmark.swift; path = ../Bookmark.swift; sourceTree = "<group>"; };
 		24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPinboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24391FBE1A4FF82900CE6E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaPinboard.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				24391FBD1A4FF82900CE6E84 /* Supporting Files */,
 				24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */,
 				24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */,
+				241C53A91A63CB5C007B1BE0 /* Bookmark.swift */,
 			);
 			path = CocoaPinboard;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */,
 				24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */,
+				241C53AA1A63CB5C007B1BE0 /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

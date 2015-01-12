@@ -98,4 +98,19 @@ public class PinboardClient {
         }
     }
     
+    public func getBookmakrs(callback: ([Bookmark]?, NSError?) -> Void) {
+        sendRequest("/posts/all", parameters: [:]) { json, error in
+            if let _ = error {
+                callback(nil, error)
+            }
+            if let entries = json as? [[String: String]] {
+                let bookmarks = entries.map { Bookmark(json: $0) }
+                callback(bookmarks, nil)
+            }
+            else {
+                callback(nil, PinboardError(code: .InvalidResponse))
+            }
+        }
+    }
+    
 }
