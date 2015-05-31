@@ -11,12 +11,14 @@
 		241C53AB1A63D7A6007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
-		24391FCD1A4FF82900CE6E84 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
 		24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
 		2441D89D1A524565005D44E1 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2441D8921A524565005D44E1 /* CocoaPinboard.framework */; };
 		2441D8AB1A524609005D44E1 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
-		2441D8AD1A524612005D44E1 /* CocoaPinboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */; };
+		2484CBB51B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
+		2484CBB61B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
+		2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
+		2484CBB91B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
 		24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 		24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 /* End PBXBuildFile section */
@@ -45,10 +47,11 @@
 		24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaPinboard.h; sourceTree = "<group>"; };
 		24391FC51A4FF82900CE6E84 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24391FCB1A4FF82900CE6E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPinboardTests.swift; sourceTree = "<group>"; };
 		24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClient.swift; sourceTree = "<group>"; };
 		2441D8921A524565005D44E1 /* CocoaPinboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPinboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2441D89C1A524565005D44E1 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTests.swift; sourceTree = "<group>"; };
+		2484CBB71B1A7F3F00463FC5 /* Bookmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bookmark.json; sourceTree = "<group>"; };
 		24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +132,8 @@
 		24391FC91A4FF82900CE6E84 /* CocoaPinboardTests */ = {
 			isa = PBXGroup;
 			children = (
-				24391FCC1A4FF82900CE6E84 /* CocoaPinboardTests.swift */,
 				24391FCA1A4FF82900CE6E84 /* Supporting Files */,
+				2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */,
 			);
 			path = CocoaPinboardTests;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				24391FCB1A4FF82900CE6E84 /* Info.plist */,
+				2484CBB71B1A7F3F00463FC5 /* Bookmark.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2484CBB91B1A7F3F00463FC5 /* Bookmark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24391FCD1A4FF82900CE6E84 /* CocoaPinboardTests.swift in Sources */,
+				2484CBB51B1A7E5700463FC5 /* BookmarkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2441D8AD1A524612005D44E1 /* CocoaPinboardTests.swift in Sources */,
+				2484CBB61B1A7E5700463FC5 /* BookmarkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

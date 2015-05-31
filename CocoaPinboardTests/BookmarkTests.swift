@@ -24,6 +24,25 @@ SOFTWARE.
 
 import Foundation
 import XCTest
+import CocoaPinboard
 
-class CocoaPinboardTests: XCTestCase {
+class BookmarkTests: XCTestCase {
+
+    var bundle: NSBundle?
+
+    override func setUp() {
+        super.setUp()
+        bundle = NSBundle(forClass: BookmarkTests.self)
+    }
+
+    func testInitJson() {
+        let url = bundle!.URLForResource("Bookmark", withExtension: "json")!
+        let json = NSData(contentsOfURL: url)!
+        let parsed = NSJSONSerialization.JSONObjectWithData(json, options: nil, error: nil) as! [String:String]
+        let bookmark = Bookmark(json: parsed)
+        XCTAssertEqual(bookmark.title, "Exaple.ORG")
+        XCTAssertEqual(bookmark.tags, ["example", "pinboard"])
+        XCTAssertEqual(bookmark.URLString, "http://example.org/")
+    }
+
 }
