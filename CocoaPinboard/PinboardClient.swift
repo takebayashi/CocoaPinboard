@@ -113,4 +113,19 @@ public class PinboardClient {
         }
     }
 
+    public func getRecommendedTags(url: String, callback: ([String]?, NSError?) -> Void) {
+        sendRequest("/posts/suggest", parameters: ["url": url]) { json, error in
+            if let _ = error {
+                callback(nil, error)
+            }
+            else if let response = json as? [[String: [String]]] {
+                let tags = response.flatMap { $0["recommended"] ?? [] }
+                callback(tags, nil)
+            }
+            else {
+                callback(nil, PinboardError(code: .InvalidResponse))
+            }
+        }
+    }
+
 }
