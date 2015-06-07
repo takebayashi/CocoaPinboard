@@ -103,7 +103,7 @@ public class PinboardClient {
             if let _ = error {
                 callback(nil, error)
             }
-            if let entries = json as? [[String: String]] {
+            else if let entries = json as? [[String: String]] {
                 let bookmarks = entries.map { Bookmark(json: $0) }
                 callback(bookmarks, nil)
             }
