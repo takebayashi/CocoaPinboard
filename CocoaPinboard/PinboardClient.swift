@@ -113,6 +113,15 @@ public class PinboardClient {
         }
     }
 
+    public func deleteBookmark(url: String, callback: NSError? -> Void) {
+        let params = [
+            "url": url
+        ]
+        sendRequest("/posts/delete", parameters: params) { json, error -> Void in
+            callback(error)
+        }
+    }
+
     public func getRecommendedTags(url: String, callback: ([String]?, NSError?) -> Void) {
         sendRequest("/posts/suggest", parameters: ["url": url]) { json, error in
             if let _ = error {
