@@ -37,8 +37,8 @@ public class Bookmark: NSObject {
         self.title = json["description"] ?? ""
     }
 
-    public private(set) var tags: [String]
-    public private(set) var URLString: String
-    public private(set) var title: String
+    public var tags: [String]
+    public var URLString: String
+    public var title: String
 
 }

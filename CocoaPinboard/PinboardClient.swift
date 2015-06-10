@@ -98,6 +98,18 @@ public class PinboardClient {
         }
     }
 
+    public func updateBookmark(bookmark: Bookmark, callback: NSError? -> Void) {
+        let params = [
+            "url": bookmark.URLString,
+            "description": bookmark.title,
+            "tags": join(",", bookmark.tags),
+            "replace": "yes"
+        ]
+        sendRequest("/posts/add", parameters: params) { json, error in
+            callback(error)
+        }
+    }
+
     public func getBookmakrs(callback: ([Bookmark]?, NSError?) -> Void) {
         sendRequest("/posts/all", parameters: [:]) { json, error in
             if let _ = error {
