@@ -26,6 +26,12 @@ import Foundation
 
 public class Bookmark: NSObject {
 
+    public init(title: String, URLString: String, tags: [String]) {
+        self.title = title
+        self.URLString = URLString
+        self.tags = tags
+    }
+
     public init(json: [String: String]) {
         if let tagLine = json["tags"] {
             self.tags = tagLine.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())

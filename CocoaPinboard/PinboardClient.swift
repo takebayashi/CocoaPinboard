@@ -87,25 +87,27 @@ public class PinboardClient {
         }
     }
 
-    public func addBookmark(url: String, title: String, tags: [String], callback: NSError? -> Void) {
+    public func addBookmark(bookmark: Bookmark, overwrite: Bool, callback: NSError? -> Void) {
         let params = [
-            "url": url,
-            "description": title,
-            "tags": join(",", tags)
+            "url": bookmark.URLString,
+            "description": bookmark.title,
+            "tags": join(",", bookmark.tags),
+            "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
             callback(error)
         }
     }
 
+    public func addBookmark(url: String, title: String, tags: [String], callback: NSError? -> Void) {
+        let bookmark = Bookmark(title: title, URLString: url, tags: tags)
+        addBookmark(bookmark, overwrite: false) { error in
+            callback(error)
+        }
+    }
+
     public func updateBookmark(bookmark: Bookmark, callback: NSError? -> Void) {
-        let params = [
-            "url": bookmark.URLString,
-            "description": bookmark.title,
-            "tags": join(",", bookmark.tags),
-            "replace": "yes"
-        ]
-        sendRequest("/posts/add", parameters: params) { json, error in
+        addBookmark(bookmark, overwrite: true) { error in
             callback(error)
         }
     }
