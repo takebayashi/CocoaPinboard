@@ -24,15 +24,28 @@ SOFTWARE.
 
 import Foundation
 
-let PinboardErrorDomain = "asia.takebayashi.CocoaPinboard"
-enum PinboardErrorCode: Int {
-    case InvalidResponse
-}
-
 class PinboardError: NSError {
 
-    convenience init(code: PinboardErrorCode) {
-        self.init(domain: PinboardErrorDomain, code: code.rawValue, userInfo: nil)
+    static let Domain = "asia.takebayashi.CocoaPinboard"
+
+    enum Code: Int {
+        case InvalidResponse
+    }
+
+    enum InfoKey: String {
+        case Message = "message"
+    }
+
+    convenience init(code: Code) {
+        self.init(code: code, message: nil)
+    }
+
+    convenience init(code: Code, message: String?) {
+        var info = NSMutableDictionary()
+        if let m = message {
+            info[InfoKey.Message.rawValue] = m
+        }
+        self.init(domain: PinboardError.Domain, code: code.rawValue, userInfo: nil)
     }
 
 }
