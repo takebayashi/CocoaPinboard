@@ -95,6 +95,14 @@ public class PinboardClient {
             "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
+            if let response = json as? [String: String] {
+                if response["code"] == "done" {
+                    callback(nil)
+                }
+                else {
+                    callback(PinboardError(code: .ErrorResponse, message: response["code"]))
+                }
+            }
             callback(error)
         }
     }

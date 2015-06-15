@@ -30,6 +30,7 @@ class PinboardError: NSError {
 
     enum Code: Int {
         case InvalidResponse
+        case ErrorResponse
     }
 
     enum InfoKey: String {
