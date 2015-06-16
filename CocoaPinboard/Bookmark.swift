@@ -41,10 +41,12 @@ public class Bookmark: NSObject {
         }
         self.URLString = json["href"] ?? ""
         self.title = json["description"] ?? ""
+        self.signature = json["meta"]
     }
 
     public var tags: [String]
     public var URLString: String
     public var title: String
+    public var signature: String?
 
 }
