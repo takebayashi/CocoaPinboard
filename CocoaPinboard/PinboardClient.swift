@@ -87,6 +87,18 @@ public class PinboardClient {
         }
     }
 
+    func parseResponse(json: AnyObject) -> NSError? {
+        if let response = json as? [String: String] {
+            if response["code"] == "done" {
+                return nil
+            }
+            else {
+                return PinboardError(code: .ErrorResponse, message: response["code"])
+            }
+        }
+        return PinboardError(code: .InvalidResponse)
+    }
+
     public func addBookmark(bookmark: Bookmark, overwrite: Bool, callback: NSError? -> Void) {
         let params = [
             "url": bookmark.URLString,
@@ -95,15 +107,7 @@ public class PinboardClient {
             "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
-            if let response = json as? [String: String] {
-                if response["code"] == "done" {
-                    callback(nil)
-                }
-                else {
-                    callback(PinboardError(code: .ErrorResponse, message: response["code"]))
-                }
-            }
-            callback(error)
+            callback(error ?? self.parseResponse(json!))
         }
     }
 
