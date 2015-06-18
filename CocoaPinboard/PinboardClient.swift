@@ -87,13 +87,13 @@ public class PinboardClient {
         }
     }
 
-    func parseResponse(json: AnyObject) -> NSError? {
+    public func parseResponse(json: AnyObject) -> NSError? {
         if let response = json as? [String: String] {
-            if response["code"] == "done" {
+            if response["result_code"] == "done" {
                 return nil
             }
             else {
-                return PinboardError(code: .ErrorResponse, message: response["code"])
+                return PinboardError(code: .ErrorResponse, message: response["result_code"])
             }
         }
         return PinboardError(code: .InvalidResponse)

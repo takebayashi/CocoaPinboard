@@ -23,30 +23,31 @@ SOFTWARE.
 */
 
 import Foundation
+import XCTest
+import CocoaPinboard
 
-class PinboardError: NSError {
+class PinboardClientTests: XCTestCase {
 
-    static let Domain = "asia.takebayashi.CocoaPinboard"
+    let client = PinboardClient(username: "", token: "")
 
-    enum Code: Int {
-        case InvalidResponse
-        case ErrorResponse
-    }
+    func testParseResponse() {
+        let failedJsonString = "{\"result_code\":\"item not found\"}"
+        let failedJson: AnyObject = NSJSONSerialization.JSONObjectWithData(
+            failedJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+            options: nil,
+            error: nil
+        )!
+        let error = client.parseResponse(failedJson)
+        XCTAssertEqual(error!.localizedDescription, "item not found")
 
-    convenience init(code: Code) {
-        self.init(code: code, message: nil)
-    }
-
-    convenience init(code: Code, message: String?) {
-        var info = NSMutableDictionary()
-        if let m = message {
-            info[NSLocalizedDescriptionKey] = m
-        }
-        self.init(
-            domain: PinboardError.Domain,
-            code: code.rawValue,
-            userInfo: info as [NSObject : AnyObject]
-        )
+        let succeededJsonString = "{\"result_code\":\"done\"}"
+        let succeededJson: AnyObject = NSJSONSerialization.JSONObjectWithData(
+            succeededJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+            options: nil,
+            error: nil
+            )!
+        let noneError = client.parseResponse(succeededJson)
+        XCTAssertNil(noneError)
     }
 
 }
