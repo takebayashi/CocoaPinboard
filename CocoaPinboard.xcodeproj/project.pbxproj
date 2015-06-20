@@ -8,21 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		241C53AA1A63CB5C007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
-		241C53AB1A63D7A6007B1BE0 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C53A91A63CB5C007B1BE0 /* Bookmark.swift */; };
 		24391FC01A4FF82900CE6E84 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24391FC61A4FF82900CE6E84 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */; };
 		24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
-		2441D89D1A524565005D44E1 /* CocoaPinboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2441D8921A524565005D44E1 /* CocoaPinboard.framework */; };
-		2441D8AB1A524609005D44E1 /* CocoaPinboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 24391FBF1A4FF82900CE6E84 /* CocoaPinboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */; };
 		2484CBB51B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
-		2484CBB61B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
 		2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
-		2484CBB91B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
 		248CF7FA1B31B4160016A3B3 /* PinboardClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */; };
-		248CF7FB1B31B64F0016A3B3 /* PinboardClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */; };
 		24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
-		24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +24,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 24391FB91A4FF82900CE6E84;
 			remoteInfo = CocoaPinboard;
-		};
-		2441D89E1A524565005D44E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24391FB11A4FF82900CE6E84 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2441D8911A524565005D44E1;
-			remoteInfo = CocoaTouchPinboard;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,8 +35,6 @@
 		24391FC51A4FF82900CE6E84 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24391FCB1A4FF82900CE6E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClient.swift; sourceTree = "<group>"; };
-		2441D8921A524565005D44E1 /* CocoaPinboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaPinboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2441D89C1A524565005D44E1 /* CocoaPinboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaPinboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTests.swift; sourceTree = "<group>"; };
 		2484CBB71B1A7F3F00463FC5 /* Bookmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bookmark.json; sourceTree = "<group>"; };
 		248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClientTests.swift; sourceTree = "<group>"; };
@@ -74,21 +57,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2441D88E1A524565005D44E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2441D8991A524565005D44E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2441D89D1A524565005D44E1 /* CocoaPinboard.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -106,8 +74,6 @@
 			children = (
 				24391FBA1A4FF82900CE6E84 /* CocoaPinboard.framework */,
 				24391FC51A4FF82900CE6E84 /* CocoaPinboardTests.xctest */,
-				2441D8921A524565005D44E1 /* CocoaPinboard.framework */,
-				2441D89C1A524565005D44E1 /* CocoaPinboardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,14 +128,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2441D88F1A524565005D44E1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2441D8AB1A524609005D44E1 /* CocoaPinboard.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -209,42 +167,6 @@
 			productReference = 24391FC51A4FF82900CE6E84 /* CocoaPinboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2441D8911A524565005D44E1 /* CocoaPinboard_iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2441D8A91A524565005D44E1 /* Build configuration list for PBXNativeTarget "CocoaPinboard_iOS" */;
-			buildPhases = (
-				2441D88D1A524565005D44E1 /* Sources */,
-				2441D88E1A524565005D44E1 /* Frameworks */,
-				2441D88F1A524565005D44E1 /* Headers */,
-				2441D8901A524565005D44E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CocoaPinboard_iOS;
-			productName = CocoaTouchPinboard;
-			productReference = 2441D8921A524565005D44E1 /* CocoaPinboard.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		2441D89B1A524565005D44E1 /* CocoaPinboardTests_iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2441D8AA1A524565005D44E1 /* Build configuration list for PBXNativeTarget "CocoaPinboardTests_iOS" */;
-			buildPhases = (
-				2441D8981A524565005D44E1 /* Sources */,
-				2441D8991A524565005D44E1 /* Frameworks */,
-				2441D89A1A524565005D44E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2441D89F1A524565005D44E1 /* PBXTargetDependency */,
-			);
-			name = CocoaPinboardTests_iOS;
-			productName = CocoaTouchPinboardTests;
-			productReference = 2441D89C1A524565005D44E1 /* CocoaPinboardTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -258,12 +180,6 @@
 						CreatedOnToolsVersion = 6.1.1;
 					};
 					24391FC41A4FF82900CE6E84 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					2441D8911A524565005D44E1 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					2441D89B1A524565005D44E1 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -282,8 +198,6 @@
 			targets = (
 				24391FB91A4FF82900CE6E84 /* CocoaPinboard_OSX */,
 				24391FC41A4FF82900CE6E84 /* CocoaPinboardTests_OSX */,
-				2441D8911A524565005D44E1 /* CocoaPinboard_iOS */,
-				2441D89B1A524565005D44E1 /* CocoaPinboardTests_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -301,21 +215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2441D8901A524565005D44E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2441D89A1A524565005D44E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2484CBB91B1A7F3F00463FC5 /* Bookmark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,25 +240,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2441D88D1A524565005D44E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2441D8AC1A52460E005D44E1 /* PinboardClient.swift in Sources */,
-				24AA4E4F1A56D2BE00BAC6B4 /* PinboardError.swift in Sources */,
-				241C53AB1A63D7A6007B1BE0 /* Bookmark.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2441D8981A524565005D44E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2484CBB61B1A7E5700463FC5 /* BookmarkTests.swift in Sources */,
-				248CF7FB1B31B64F0016A3B3 /* PinboardClientTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -367,11 +247,6 @@
 			isa = PBXTargetDependency;
 			target = 24391FB91A4FF82900CE6E84 /* CocoaPinboard_OSX */;
 			targetProxy = 24391FC71A4FF82900CE6E84 /* PBXContainerItemProxy */;
-		};
-		2441D89F1A524565005D44E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2441D8911A524565005D44E1 /* CocoaPinboard_iOS */;
-			targetProxy = 2441D89E1A524565005D44E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -526,88 +401,6 @@
 			};
 			name = Release;
 		};
-		2441D8A51A524565005D44E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CocoaPinboard/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CocoaPinboard;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2441D8A61A524565005D44E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CocoaPinboard/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CocoaPinboard;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		2441D8A71A524565005D44E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CocoaPinboardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CocoaPinboardTests;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		2441D8A81A524565005D44E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CocoaPinboardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CocoaPinboardTests;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -634,24 +427,6 @@
 			buildConfigurations = (
 				24391FD41A4FF82900CE6E84 /* Debug */,
 				24391FD51A4FF82900CE6E84 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2441D8A91A524565005D44E1 /* Build configuration list for PBXNativeTarget "CocoaPinboard_iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2441D8A51A524565005D44E1 /* Debug */,
-				2441D8A61A524565005D44E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2441D8AA1A524565005D44E1 /* Build configuration list for PBXNativeTarget "CocoaPinboardTests_iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2441D8A71A524565005D44E1 /* Debug */,
-				2441D8A81A524565005D44E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
