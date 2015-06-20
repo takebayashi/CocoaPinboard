@@ -60,30 +60,38 @@ public class PinboardClient {
         }
     }
 
-    func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
+    func createRequest(path: String, parameters: [String: String]) -> NSURLRequest {
         var params = parameters
         params["auth_token"] = username + ":" + token
         params["format"] = "json"
         let qline = join("&", map(params, concatenateKeyAndValue))
         let url = NSURL(string: endpoint + path + "?" + qline)!
-        let request = NSURLRequest(URL: url)
+        return NSURLRequest(URL: url)
+    }
+
+    func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
+        let request = createRequest(path, parameters: parameters)
         NSURLConnection.sendAsynchronousRequest(request, queue: queue) { response, data, error in
-            if let _ = error {
-                callback(nil, error)
-            }
-            else if let http = response as? NSHTTPURLResponse {
-                if http.statusCode != 200 {
-                    callback(nil, NSError(domain: "CocoaPinboardHTTPError", code: http.statusCode, userInfo:nil))
-                }
-                else {
-                    var jsonError: NSError?
-                    let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
-                    callback(json, jsonError)
-                }
+            callback(self.handleResponse(response, data: data, error: error))
+        }
+    }
+
+    func handleResponse(response: NSURLResponse, data: NSData, error: NSError?) -> (AnyObject?, NSError?) {
+        if let _ = error {
+            return (nil, error)
+        }
+        else if let http = response as? NSHTTPURLResponse {
+            if http.statusCode != 200 {
+                return (nil, NSError(domain: "CocoaPinboardHTTPError", code: http.statusCode, userInfo:nil))
             }
             else {
-                callback(nil, PinboardError(code: .InvalidResponse))
+                var jsonError: NSError?
+                let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
+                return (json, jsonError)
             }
+        }
+        else {
+            return (nil, PinboardError(code: .InvalidResponse))
         }
     }
 
