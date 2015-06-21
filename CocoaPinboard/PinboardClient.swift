@@ -171,4 +171,29 @@ public class PinboardClient {
         }
     }
 
+    public func getCountsByDate(callback: ([String: Int]?, NSError?) -> Void) {
+        sendRequest("/posts/date", parameters: [:]) { json, error in
+            if let _ = error {
+                callback(nil, error)
+            }
+            else {
+                callback(self.parseCountsByDateResponse(json))
+            }
+        }
+    }
+
+    public func parseCountsByDateResponse(content: AnyObject?) -> ([String: Int]?, NSError?) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let dateContent = (content as? [String: AnyObject])?["dates"] as? [String: String]
+        if let dates = dateContent {
+            var counts: [String: Int] = [:]
+            for date in dates.keys {
+                counts[date] = dates[date]?.toInt()
+            }
+            return (counts, nil)
+        }
+        return (nil, PinboardError(code: .InvalidResponse, message: nil))
+    }
+
 }

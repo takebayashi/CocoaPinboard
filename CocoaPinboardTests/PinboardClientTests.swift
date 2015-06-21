@@ -30,6 +30,14 @@ class PinboardClientTests: XCTestCase {
 
     let client = PinboardClient(username: "", token: "")
 
+    func parseJson(json: String) -> AnyObject {
+        return NSJSONSerialization.JSONObjectWithData(
+            json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+            options: nil,
+            error: nil
+        )!
+    }
+
     func testParseResponse() {
         let failedJsonString = "{\"result_code\":\"item not found\"}"
         let failedJson: AnyObject = NSJSONSerialization.JSONObjectWithData(
@@ -48,6 +56,15 @@ class PinboardClientTests: XCTestCase {
             )!
         let noneError = client.parseResponse(succeededJson)
         XCTAssertNil(noneError)
+    }
+
+    func testParseCountsByDateResponse() {
+        let jsonString = "{\"user\":\"argentina\",\"tag\":\"\",\"dates\":{\"2010-11-29\":\"5\",\"2010-11-28\":\"15\",\"2010-11-26\":\"2\"}}"
+        let (counts, error) = client.parseCountsByDateResponse(parseJson(jsonString))
+        XCTAssertNil(error)
+        XCTAssertNotNil(counts)
+        XCTAssertEqual(count(counts!), 3)
+        XCTAssertEqual(counts!["2010-11-28"]!, 15)
     }
 
 }
