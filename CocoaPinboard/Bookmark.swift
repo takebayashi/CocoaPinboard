@@ -26,9 +26,10 @@ import Foundation
 
 public class Bookmark: NSObject {
 
-    public init(title: String, URLString: String, tags: [String]) {
+    public init(title: String, URLString: String, tags: [String], extendedDescription: String) {
         self.title = title
         self.URLString = URLString
+        self.extendedDescription = extendedDescription
         self.tags = tags
     }
 
@@ -41,12 +42,14 @@ public class Bookmark: NSObject {
         }
         self.URLString = json["href"] ?? ""
         self.title = json["description"] ?? ""
+        self.extendedDescription = json["extended"] ?? ""
         self.signature = json["meta"]
     }
 
     public var tags: [String]
     public var URLString: String
     public var title: String
+    public var extendedDescription: String
     public var signature: String?
 
 }

@@ -111,18 +111,12 @@ public class PinboardClient {
         let params = [
             "url": bookmark.URLString,
             "description": bookmark.title,
+            "extended": bookmark.extendedDescription,
             "tags": join(",", bookmark.tags),
             "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
             callback(error ?? self.parseResponse(json!))
-        }
-    }
-
-    public func addBookmark(url: String, title: String, tags: [String], callback: NSError? -> Void) {
-        let bookmark = Bookmark(title: title, URLString: url, tags: tags)
-        addBookmark(bookmark, overwrite: false) { error in
-            callback(error)
         }
     }
 
