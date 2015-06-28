@@ -24,7 +24,7 @@ SOFTWARE.
 
 import Foundation
 
-public class Bookmark: NSObject {
+public class Bookmark: NSObject, NSCopying {
 
     public init(title: String, URLString: String, tags: [String], extendedDescription: String) {
         self.title = title
@@ -51,5 +51,9 @@ public class Bookmark: NSObject {
     public var title: String
     public var extendedDescription: String
     public var signature: String?
+
+    public func copyWithZone(zone: NSZone) -> AnyObject {
+        return Bookmark(title: title, URLString: URLString, tags: tags, extendedDescription: extendedDescription)
+    }
 
 }
