@@ -64,7 +64,7 @@ public class PinboardClient {
         var params = parameters
         params["auth_token"] = username + ":" + token
         params["format"] = "json"
-        let qline = join("&", map(params, concatenateKeyAndValue))
+        let qline = params.map(concatenateKeyAndValue).joinWithSeparator("&")
         let url = NSURL(string: endpoint + path + "?" + qline)!
         return NSURLRequest(URL: url)
     }
@@ -72,7 +72,7 @@ public class PinboardClient {
     func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
         let request = createRequest(path, parameters: parameters)
         NSURLConnection.sendAsynchronousRequest(request, queue: queue) { response, data, error in
-            callback(self.handleResponse(response, data: data, error: error))
+            callback(self.handleResponse(response!, data: data!, error: error))
         }
     }
 
@@ -86,7 +86,13 @@ public class PinboardClient {
             }
             else {
                 var jsonError: NSError?
-                let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &jsonError)
+                let json: AnyObject?
+                do {
+                    json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+                } catch let error as NSError {
+                    jsonError = error
+                    json = nil
+                }
                 return (json, jsonError)
             }
         }
@@ -112,7 +118,7 @@ public class PinboardClient {
             "url": bookmark.URLString,
             "description": bookmark.title,
             "extended": bookmark.extendedDescription,
-            "tags": join(",", bookmark.tags),
+            "tags": bookmark.tags.joinWithSeparator(","),
             "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
@@ -183,7 +189,7 @@ public class PinboardClient {
         if let dates = dateContent {
             var counts: [String: Int] = [:]
             for date in dates.keys {
-                counts[date] = dates[date]?.toInt()
+                counts[date] = Int(dates[date]!)
             }
             return (counts, nil)
         }

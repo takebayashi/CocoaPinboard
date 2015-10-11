@@ -173,7 +173,9 @@
 		24391FB11A4FF82900CE6E84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Shun Takebayashi";
 				TargetAttributes = {
 					24391FB91A4FF82900CE6E84 = {
@@ -271,6 +273,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -345,6 +348,7 @@
 				INFOPLIST_FILE = CocoaPinboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboard;
 				PRODUCT_NAME = CocoaPinboard;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -364,6 +368,7 @@
 				INFOPLIST_FILE = CocoaPinboard/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboard;
 				PRODUCT_NAME = CocoaPinboard;
 				SKIP_INSTALL = YES;
 			};
@@ -383,6 +388,7 @@
 				);
 				INFOPLIST_FILE = CocoaPinboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboardTests;
 				PRODUCT_NAME = CocoaPinboardTests;
 			};
 			name = Debug;
@@ -397,6 +403,7 @@
 				);
 				INFOPLIST_FILE = CocoaPinboardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboardTests;
 				PRODUCT_NAME = CocoaPinboardTests;
 			};
 			name = Release;

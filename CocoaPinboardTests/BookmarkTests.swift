@@ -38,7 +38,7 @@ class BookmarkTests: XCTestCase {
     func testInitJson() {
         let url = bundle!.URLForResource("Bookmark", withExtension: "json")!
         let json = NSData(contentsOfURL: url)!
-        let parsed = NSJSONSerialization.JSONObjectWithData(json, options: nil, error: nil) as! [String:String]
+        let parsed = (try! NSJSONSerialization.JSONObjectWithData(json, options: [])) as! [String:String]
         let bookmark = Bookmark(json: parsed)
         XCTAssertEqual(bookmark.title, "Exaple.ORG")
         XCTAssertEqual(bookmark.tags, ["example", "pinboard"])

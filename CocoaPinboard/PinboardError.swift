@@ -38,7 +38,7 @@ class PinboardError: NSError {
     }
 
     convenience init(code: Code, message: String?) {
-        var info = NSMutableDictionary()
+        let info = NSMutableDictionary()
         if let m = message {
             info[NSLocalizedDescriptionKey] = m
         }
