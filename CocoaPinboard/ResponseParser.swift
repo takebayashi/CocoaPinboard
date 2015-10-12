@@ -23,26 +23,21 @@ SOFTWARE.
 */
 
 import Foundation
-import XCTest
-import CocoaPinboard
 
-class BookmarkTests: XCTestCase {
+public struct BookmarkParser {
 
-    var bundle: NSBundle?
-
-    override func setUp() {
-        super.setUp()
-        bundle = NSBundle(forClass: BookmarkTests.self)
-    }
-
-    func testInitJson() {
-        let url = bundle!.URLForResource("Bookmark", withExtension: "json")!
-        let json = NSData(contentsOfURL: url)!
-        let parsed = (try! NSJSONSerialization.JSONObjectWithData(json, options: [])) as! [String:String]
-        let bookmark = BookmarkParser.parse(parsed)!
-        XCTAssertEqual(bookmark.title, "Exaple.ORG")
-        XCTAssertEqual(bookmark.tags, ["example", "pinboard"])
-        XCTAssertEqual(bookmark.URL.absoluteString, "http://example.org/")
+    public static func parse(JSON: [String: String]) -> Bookmark? {
+        guard let URL = NSURL(string: JSON["href"] ?? "") else {
+            return nil
+        }
+        let bookmark = Bookmark(URL: URL)
+        if let tags = JSON["tags"]?.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) {
+            bookmark.tags = tags
+        }
+        bookmark.title = JSON["description"] ?? ""
+        bookmark.extendedDescription = JSON["extended"] ?? ""
+        bookmark.signature = JSON["meta"]
+        return bookmark
     }
 
 }

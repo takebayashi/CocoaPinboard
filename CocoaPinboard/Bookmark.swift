@@ -26,34 +26,21 @@ import Foundation
 
 public class Bookmark: NSObject, NSCopying {
 
-    init(URLString: String) {
-        self.URLString = URLString
+    public init(URL: NSURL) {
+        self.URL = URL
         self.tags = []
         self.title = ""
         self.extendedDescription = ""
     }
 
-    public init(json: [String: String]) {
-        if let tagLine = json["tags"] {
-            self.tags = tagLine.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        }
-        else {
-            self.tags = []
-        }
-        self.URLString = json["href"] ?? ""
-        self.title = json["description"] ?? ""
-        self.extendedDescription = json["extended"] ?? ""
-        self.signature = json["meta"]
-    }
-
     public var tags: [String]
-    public var URLString: String
+    public var URL: NSURL
     public var title: String
     public var extendedDescription: String
     public var signature: String?
 
     public func copyWithZone(zone: NSZone) -> AnyObject {
-        let copied = Bookmark(URLString: self.URLString)
+        let copied = Bookmark(URL: self.URL)
         copied.tags = self.tags
         copied.title = self.title
         copied.extendedDescription = self.extendedDescription

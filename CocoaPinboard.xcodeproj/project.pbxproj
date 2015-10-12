@@ -14,6 +14,7 @@
 		2484CBB51B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
 		2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
 		248CF7FA1B31B4160016A3B3 /* PinboardClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */; };
+		249D13891BCBA87D00CC8CC6 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D13881BCBA87D00CC8CC6 /* ResponseParser.swift */; settings = {ASSET_TAGS = (); }; };
 		24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTests.swift; sourceTree = "<group>"; };
 		2484CBB71B1A7F3F00463FC5 /* Bookmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Bookmark.json; sourceTree = "<group>"; };
 		248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardClientTests.swift; sourceTree = "<group>"; };
+		249D13881BCBA87D00CC8CC6 /* ResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
 		24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinboardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				24391FD61A4FFA6F00CE6E84 /* PinboardClient.swift */,
 				24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */,
 				241C53A91A63CB5C007B1BE0 /* Bookmark.swift */,
+				249D13881BCBA87D00CC8CC6 /* ResponseParser.swift */,
 			);
 			path = CocoaPinboard;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				24391FD71A4FFA6F00CE6E84 /* PinboardClient.swift in Sources */,
 				24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */,
 				241C53AA1A63CB5C007B1BE0 /* Bookmark.swift in Sources */,
+				249D13891BCBA87D00CC8CC6 /* ResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

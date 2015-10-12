@@ -115,7 +115,7 @@ public class PinboardClient {
 
     public func addBookmark(bookmark: Bookmark, overwrite: Bool, callback: NSError? -> Void) {
         let params = [
-            "url": bookmark.URLString,
+            "url": bookmark.URL.absoluteString,
             "description": bookmark.title,
             "extended": bookmark.extendedDescription,
             "tags": bookmark.tags.joinWithSeparator(","),
@@ -138,7 +138,7 @@ public class PinboardClient {
                 callback(nil, error)
             }
             else if let entries = json as? [[String: String]] {
-                let bookmarks = entries.map { Bookmark(json: $0) }
+                let bookmarks = entries.flatMap(BookmarkParser.parse)
                 callback(bookmarks, nil)
             }
             else {
