@@ -26,11 +26,11 @@ import Foundation
 
 public class Bookmark: NSObject, NSCopying {
 
-    public init(title: String, URLString: String, tags: [String], extendedDescription: String) {
-        self.title = title
+    init(URLString: String) {
         self.URLString = URLString
-        self.extendedDescription = extendedDescription
-        self.tags = tags
+        self.tags = []
+        self.title = ""
+        self.extendedDescription = ""
     }
 
     public init(json: [String: String]) {
@@ -53,7 +53,12 @@ public class Bookmark: NSObject, NSCopying {
     public var signature: String?
 
     public func copyWithZone(zone: NSZone) -> AnyObject {
-        return Bookmark(title: title, URLString: URLString, tags: tags, extendedDescription: extendedDescription)
+        let copied = Bookmark(URLString: self.URLString)
+        copied.tags = self.tags
+        copied.title = self.title
+        copied.extendedDescription = self.extendedDescription
+        copied.signature = self.signature
+        return copied
     }
 
 }
