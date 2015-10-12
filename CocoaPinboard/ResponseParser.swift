@@ -36,8 +36,23 @@ public struct BookmarkParser {
         }
         bookmark.title = JSON["description"] ?? ""
         bookmark.extendedDescription = JSON["extended"] ?? ""
+        bookmark.date = DateParser.parse(JSON["dt"] ?? "")
         bookmark.signature = JSON["meta"]
         return bookmark
+    }
+
+}
+
+public struct DateParser {
+
+    static var dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z"
+        return formatter
+    }()
+
+    public static func parse(string: String) -> NSDate? {
+        return dateFormatter.dateFromString(string)
     }
 
 }

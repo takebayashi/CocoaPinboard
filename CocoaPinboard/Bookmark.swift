@@ -37,6 +37,7 @@ public class Bookmark: NSObject, NSCopying {
     public var URL: NSURL
     public var title: String
     public var extendedDescription: String
+    public var date: NSDate?
     public var signature: String?
 
     public func copyWithZone(zone: NSZone) -> AnyObject {
@@ -44,6 +45,7 @@ public class Bookmark: NSObject, NSCopying {
         copied.tags = self.tags
         copied.title = self.title
         copied.extendedDescription = self.extendedDescription
+        copied.date = self.date
         copied.signature = self.signature
         return copied
     }
