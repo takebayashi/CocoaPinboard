@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode8
+xcode_project: CocoaPinboard.xcodeproj
+xcode_scheme:
+  - CocoaPinboard_OSX
+  - CocoaPinboard_iOS
+xcode_sdk:
+  - macosx10.12
+  - iphonesimulator10.0
