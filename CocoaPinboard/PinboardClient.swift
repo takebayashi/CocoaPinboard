@@ -24,10 +24,10 @@ SOFTWARE.
 
 import Foundation
 
-public class PinboardClient {
+open class PinboardClient {
 
     let endpoint = "https://api.pinboard.in/v1"
-    let queue = NSOperationQueue.mainQueue()
+    let queue = OperationQueue.main
 
     let username: String
     let token: String
@@ -37,11 +37,11 @@ public class PinboardClient {
         self.token = token
     }
 
-    func concatenateKeyAndValue(key: String, value: String) -> String {
-        return key + "=" + value.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
+    func concatenateKeyAndValue(_ key: String, value: String) -> String {
+        return key + "=" + value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 
-    public func validateToken(callback: (Bool, NSError?) -> Void) {
+    open func validateToken(_ callback: @escaping (Bool, Error?) -> Void) {
         sendRequest("/user/api_token", parameters: [:]) { json, error in
             if let _ = error {
                 callback(false, error)
@@ -55,40 +55,41 @@ public class PinboardClient {
                 }
             }
             else {
-                callback(false, PinboardError(code: .InvalidResponse))
+                callback(false, PinboardError(code: .invalidResponse))
             }
         }
     }
 
-    func createRequest(path: String, parameters: [String: String]) -> NSURLRequest {
+    func createRequest(_ path: String, parameters: [String: String]) -> URLRequest {
         var params = parameters
         params["auth_token"] = username + ":" + token
         params["format"] = "json"
-        let qline = params.map(concatenateKeyAndValue).joinWithSeparator("&")
-        let url = NSURL(string: endpoint + path + "?" + qline)!
-        return NSURLRequest(URL: url)
+        let qline = params.map(concatenateKeyAndValue).joined(separator: "&")
+        let url = URL(string: endpoint + path + "?" + qline)!
+        return URLRequest(url: url)
     }
 
-    func sendRequest(path: String, parameters: [String: String], callback: (AnyObject?, NSError?) -> Void) {
+    func sendRequest(_ path: String, parameters: [String: String], callback: @escaping (Any?, Error?) -> Void) {
         let request = createRequest(path, parameters: parameters)
         NSURLConnection.sendAsynchronousRequest(request, queue: queue) { response, data, error in
-            callback(self.handleResponse(response!, data: data!, error: error))
+            let (handledJson, handledError) = self.handleResponse(response!, data: data!, error: error)
+            callback(handledJson, handledError)
         }
     }
 
-    func handleResponse(response: NSURLResponse, data: NSData, error: NSError?) -> (AnyObject?, NSError?) {
+    func handleResponse(_ response: URLResponse, data: Data, error: Error?) -> (Any?, Error?) {
         if let _ = error {
             return (nil, error)
         }
-        else if let http = response as? NSHTTPURLResponse {
+        else if let http = response as? HTTPURLResponse {
             if http.statusCode != 200 {
                 return (nil, NSError(domain: "CocoaPinboardHTTPError", code: http.statusCode, userInfo:nil))
             }
             else {
                 var jsonError: NSError?
-                let json: AnyObject?
+                let json: Any?
                 do {
-                    json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+                    json = try JSONSerialization.jsonObject(with: data, options: [])
                 } catch let error as NSError {
                     jsonError = error
                     json = nil
@@ -97,28 +98,31 @@ public class PinboardClient {
             }
         }
         else {
-            return (nil, PinboardError(code: .InvalidResponse))
+            return (nil, PinboardError(code: .invalidResponse))
         }
     }
 
-    public func parseResponse(json: AnyObject) -> NSError? {
+    open func parseResponse(_ json: Any) -> Error? {
         if let response = json as? [String: String] {
-            if response["result_code"] == "done" {
-                return nil
+            if let resultCode = response["result_code"] {
+                if resultCode == "done" {
+                    return nil
+                }
+                else {
+                    return PinboardError(code: .errorResponse, message: resultCode)
+                }
             }
-            else {
-                return PinboardError(code: .ErrorResponse, message: response["result_code"])
-            }
+            return PinboardError(code: .errorResponse)
         }
-        return PinboardError(code: .InvalidResponse)
+        return PinboardError(code: .invalidResponse)
     }
 
-    public func addBookmark(bookmark: Bookmark, overwrite: Bool, callback: NSError? -> Void) {
+    open func addBookmark(_ bookmark: Bookmark, overwrite: Bool, callback: @escaping (Error?) -> Void) {
         let params = [
             "url": bookmark.URL.absoluteString,
             "description": bookmark.title,
             "extended": bookmark.extendedDescription,
-            "tags": bookmark.tags.joinWithSeparator(","),
+            "tags": bookmark.tags.joined(separator: ","),
             "replace": overwrite ? "yes" : "no"
         ]
         sendRequest("/posts/add", parameters: params) { json, error in
@@ -126,13 +130,13 @@ public class PinboardClient {
         }
     }
 
-    public func updateBookmark(bookmark: Bookmark, callback: NSError? -> Void) {
+    open func updateBookmark(_ bookmark: Bookmark, callback: @escaping (Error?) -> Void) {
         addBookmark(bookmark, overwrite: true) { error in
             callback(error)
         }
     }
 
-    public func getBookmakrs(callback: ([Bookmark]?, NSError?) -> Void) {
+    open func getBookmakrs(_ callback: @escaping ([Bookmark]?, Error?) -> Void) {
         sendRequest("/posts/all", parameters: [:]) { json, error in
             if let _ = error {
                 callback(nil, error)
@@ -142,12 +146,12 @@ public class PinboardClient {
                 callback(bookmarks, nil)
             }
             else {
-                callback(nil, PinboardError(code: .InvalidResponse))
+                callback(nil, PinboardError(code: .invalidResponse))
             }
         }
     }
 
-    public func deleteBookmark(url: String, callback: NSError? -> Void) {
+    open func deleteBookmark(_ url: String, callback: @escaping (Error?) -> Void) {
         let params = [
             "url": url
         ]
@@ -156,7 +160,7 @@ public class PinboardClient {
         }
     }
 
-    public func getRecommendedTags(url: String, callback: ([String]?, NSError?) -> Void) {
+    open func getRecommendedTags(_ url: String, callback: @escaping ([String]?, Error?) -> Void) {
         sendRequest("/posts/suggest", parameters: ["url": url]) { json, error in
             if let _ = error {
                 callback(nil, error)
@@ -166,24 +170,25 @@ public class PinboardClient {
                 callback(tags, nil)
             }
             else {
-                callback(nil, PinboardError(code: .InvalidResponse))
+                callback(nil, PinboardError(code: .invalidResponse))
             }
         }
     }
 
-    public func getCountsByDate(callback: ([String: Int]?, NSError?) -> Void) {
+    open func getCountsByDate(_ callback: @escaping ([String: Int]?, Error?) -> Void) {
         sendRequest("/posts/date", parameters: [:]) { json, error in
             if let _ = error {
                 callback(nil, error)
             }
             else {
-                callback(self.parseCountsByDateResponse(json))
+                let (handledJson, handledError) = self.parseCountsByDateResponse(json)
+                callback(handledJson, handledError)
             }
         }
     }
 
-    public func parseCountsByDateResponse(content: AnyObject?) -> ([String: Int]?, NSError?) {
-        let formatter = NSDateFormatter()
+    open func parseCountsByDateResponse(_ content: Any?) -> ([String: Int]?, NSError?) {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateContent = (content as? [String: AnyObject])?["dates"] as? [String: String]
         if let dates = dateContent {
@@ -193,7 +198,7 @@ public class PinboardClient {
             }
             return (counts, nil)
         }
-        return (nil, PinboardError(code: .InvalidResponse, message: nil))
+        return (nil, PinboardError(code: .invalidResponse, message: nil))
     }
 
 }

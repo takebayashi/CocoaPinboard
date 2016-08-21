@@ -26,12 +26,12 @@ import Foundation
 
 public struct BookmarkParser {
 
-    public static func parse(JSON: [String: String]) -> Bookmark? {
-        guard let URL = NSURL(string: JSON["href"] ?? "") else {
+    public static func parse(_ JSON: [String: String]) -> Bookmark? {
+        guard let url = URL(string: JSON["href"] ?? "") else {
             return nil
         }
-        let bookmark = Bookmark(URL: URL)
-        if let tags = JSON["tags"]?.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) {
+        let bookmark = Bookmark(URL: url)
+        if let tags = JSON["tags"]?.components(separatedBy: CharacterSet.whitespaces) {
             bookmark.tags = tags
         }
         bookmark.title = JSON["description"] ?? ""
@@ -45,14 +45,14 @@ public struct BookmarkParser {
 
 public struct DateParser {
 
-    static var dateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
+    static var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z"
         return formatter
     }()
 
-    public static func parse(string: String) -> NSDate? {
-        return dateFormatter.dateFromString(string)
+    public static func parse(_ string: String) -> Date? {
+        return dateFormatter.date(from: string)
     }
 
 }

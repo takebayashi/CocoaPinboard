@@ -30,23 +30,27 @@ class PinboardClientTests: XCTestCase {
 
     let client = PinboardClient(username: "", token: "")
 
-    func parseJson(json: String) -> AnyObject {
-        return try! NSJSONSerialization.JSONObjectWithData(
-            json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+    func parseJson(_ json: String) -> Any {
+        return try! JSONSerialization.jsonObject(
+            with: json.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
             options: [])
     }
 
     func testParseResponse() {
         let failedJsonString = "{\"result_code\":\"item not found\"}"
-        let failedJson: AnyObject = try! NSJSONSerialization.JSONObjectWithData(
-            failedJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+        let failedJson = try! JSONSerialization.jsonObject(
+            with: failedJsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
             options: [])
-        let error = client.parseResponse(failedJson)
-        XCTAssertEqual(error!.localizedDescription, "item not found")
+        if let error = client.parseResponse(failedJson) {
+            XCTAssertTrue(error.localizedDescription == "item not found")
+        }
+        else {
+            XCTFail("error should be occurred, but not")
+        }
 
         let succeededJsonString = "{\"result_code\":\"done\"}"
-        let succeededJson: AnyObject = try! NSJSONSerialization.JSONObjectWithData(
-            succeededJsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!,
+        let succeededJson = try! JSONSerialization.jsonObject(
+            with: succeededJsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!,
             options: [])
         let noneError = client.parseResponse(succeededJson)
         XCTAssertNil(noneError)

@@ -28,17 +28,17 @@ import CocoaPinboard
 
 class BookmarkTests: XCTestCase {
 
-    var bundle: NSBundle?
+    var bundle: Bundle?
 
     override func setUp() {
         super.setUp()
-        bundle = NSBundle(forClass: BookmarkTests.self)
+        bundle = Bundle(for: BookmarkTests.self)
     }
 
     func testInitJson() {
-        let url = bundle!.URLForResource("Bookmark", withExtension: "json")!
-        let json = NSData(contentsOfURL: url)!
-        let parsed = (try! NSJSONSerialization.JSONObjectWithData(json, options: [])) as! [String:String]
+        let url = bundle!.url(forResource: "Bookmark", withExtension: "json")!
+        let json = try! Data(contentsOf: url)
+        let parsed = (try! JSONSerialization.jsonObject(with: json, options: [])) as! [String:String]
         let bookmark = BookmarkParser.parse(parsed)!
         XCTAssertEqual(bookmark.title, "Exaple.ORG")
         XCTAssertEqual(bookmark.tags, ["example", "pinboard"])

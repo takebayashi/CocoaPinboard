@@ -14,7 +14,7 @@
 		2484CBB51B1A7E5700463FC5 /* BookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484CBB41B1A7E5700463FC5 /* BookmarkTests.swift */; };
 		2484CBB81B1A7F3F00463FC5 /* Bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = 2484CBB71B1A7F3F00463FC5 /* Bookmark.json */; };
 		248CF7FA1B31B4160016A3B3 /* PinboardClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CF7F91B31B4160016A3B3 /* PinboardClientTests.swift */; };
-		249D13891BCBA87D00CC8CC6 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D13881BCBA87D00CC8CC6 /* ResponseParser.swift */; settings = {ASSET_TAGS = (); }; };
+		249D13891BCBA87D00CC8CC6 /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D13881BCBA87D00CC8CC6 /* ResponseParser.swift */; };
 		24AA4E4E1A56D25500BAC6B4 /* PinboardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA4E4D1A56D25500BAC6B4 /* PinboardError.swift */; };
 /* End PBXBuildFile section */
 
@@ -183,9 +183,11 @@
 				TargetAttributes = {
 					24391FB91A4FF82900CE6E84 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					24391FC41A4FF82900CE6E84 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -356,6 +358,7 @@
 				PRODUCT_NAME = CocoaPinboard;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -375,6 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboard;
 				PRODUCT_NAME = CocoaPinboard;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -394,6 +398,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboardTests;
 				PRODUCT_NAME = CocoaPinboardTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -409,6 +414,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = asia.takebayashi.CocoaPinboardTests;
 				PRODUCT_NAME = CocoaPinboardTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

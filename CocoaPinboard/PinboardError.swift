@@ -29,8 +29,8 @@ class PinboardError: NSError {
     static let Domain = "asia.takebayashi.CocoaPinboard"
 
     enum Code: Int {
-        case InvalidResponse
-        case ErrorResponse
+        case invalidResponse
+        case errorResponse
     }
 
     convenience init(code: Code) {
@@ -38,14 +38,14 @@ class PinboardError: NSError {
     }
 
     convenience init(code: Code, message: String?) {
-        let info = NSMutableDictionary()
+        var info = [AnyHashable : Any]()
         if let m = message {
             info[NSLocalizedDescriptionKey] = m
         }
         self.init(
             domain: PinboardError.Domain,
             code: code.rawValue,
-            userInfo: info as [NSObject : AnyObject]
+            userInfo: info
         )
     }
 

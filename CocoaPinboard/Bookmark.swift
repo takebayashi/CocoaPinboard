@@ -24,23 +24,23 @@ SOFTWARE.
 
 import Foundation
 
-public class Bookmark: NSObject, NSCopying {
+open class Bookmark: NSObject, NSCopying {
 
-    public init(URL: NSURL) {
+    public init(URL: Foundation.URL) {
         self.URL = URL
         self.tags = []
         self.title = ""
         self.extendedDescription = ""
     }
 
-    public var tags: [String]
-    public var URL: NSURL
-    public var title: String
-    public var extendedDescription: String
-    public var date: NSDate?
-    public var signature: String?
+    open var tags: [String]
+    open var URL: Foundation.URL
+    open var title: String
+    open var extendedDescription: String
+    open var date: Date?
+    open var signature: String?
 
-    public func copyWithZone(zone: NSZone) -> AnyObject {
+    open func copy(with zone: NSZone?) -> Any {
         let copied = Bookmark(URL: self.URL)
         copied.tags = self.tags
         copied.title = self.title
