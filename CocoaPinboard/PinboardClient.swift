@@ -26,15 +26,19 @@ import Foundation
 
 open class PinboardClient {
 
-    let endpoint = "https://api.pinboard.in/v1"
-    let queue = OperationQueue.main
-
     let username: String
     let token: String
+    let queue: OperationQueue
+    let endpoint: String
 
-    public init(username: String, token: String) {
+    public init(username: String,
+                token: String,
+                queue: OperationQueue = .main,
+                endpoint: String = "https://api.pinboard.in/v1") {
         self.username = username
         self.token = token
+        self.queue = queue
+        self.endpoint = endpoint
     }
 
     func concatenateKeyAndValue(_ key: String, value: String) -> String {
